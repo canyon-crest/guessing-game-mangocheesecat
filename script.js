@@ -26,3 +26,51 @@ function play(){
     playBtn.disabled = true;
     
 }
+
+function makeGuess(){
+    let guess = parseInt(document.getElementById("guess").value);
+    if(isNaN(guess)){
+        msg.textContent = "Please enter a valid number.";
+        return;
+    }
+    guessCount++;
+    if (guess === answer) {
+        msg.textContent = "Correct! It took" + guessCount + "tries.";
+        updateScore(guessCount);
+        resetGame();
+    }
+    else if (guess < answer){
+        msg.textContent = "Too low, try again.";
+    }
+    else {
+        msg.textContent = "Too high, try again.";
+    }
+}
+
+function updateScore(score){
+    scores.push(score);
+    wins.textcontent = "Total wins: " + scores.length;
+    let sum = 0;
+    for (let i=0; i < scores.length; i++){
+        sum += scores[i];
+    }
+    avgScore.textcontent = "Average core: " + (sum/scores.length).toFixed(1);
+    scores.sort(function(a,b){return a-b});
+
+    let 1b = document.getElementsByName("leaderboard");
+    for (let i = 0; i< 1b.length; i++){
+        if( i < scores.length) {
+            1b[1].textContent = scores[i];
+        }
+    }
+}
+
+function resetGame() {
+    guess.textContent = "";
+    guessBtn.disabled = true;
+    giveUpBtn.disabled = true;
+    playBtn.disabled = false;
+    e.dsaibled = false;
+    m.disabled = false;
+    h.disabled = false;
+}
