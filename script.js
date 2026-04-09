@@ -35,11 +35,11 @@ function makeGuess(){
     }
     guessCount++;
     if (guess === answer) {
-        msg.textContent = "Correct! It took" + guessCount + "tries.";
+        msg.textContent = "Correct! It took " + guessCount + " tries.";
         updateScore(guessCount);
         resetGame();
     }
-    else if (guess < answer){
+    else if (guess < answer) {
         msg.textContent = "Too low, try again.";
     }
     else {
