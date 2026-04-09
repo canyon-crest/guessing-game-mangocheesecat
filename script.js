@@ -5,10 +5,22 @@ let casedname = playername.charAt(0).toUpperCase() + playername.slice(1).toLower
 let answer = 0; 
 let guessCount = 0;
 let totalWins = 0;
+let startTime = 0;
+let allTimes = [];
 const scores = [];
 
 document.getElementById("playBtn").addEventListener
 ("click", play);
+document.getElementById("guessBtn").addEventListener("click", makeGuess);
+document.getElementById("giveUpBtn").addEventListener("click", giveUp);
+
+setInterval(function(){
+    document.getElementById("date").textContent = time();
+}, 1000);
+
+function time() {
+    let months = []
+}
 
 function play(){
     let range = 0;
