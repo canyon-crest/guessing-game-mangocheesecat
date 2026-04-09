@@ -39,14 +39,16 @@ function makeGuess() {
     if (guess == answer) {
         msg.textContent = "Correct! It took " + guessCount + " tries.";
         updateScore(guessCount);
-        guessBtn.disabled = true
+        guessBtn.disabled = true;
         giveUpBtn.disabled = true;
     }
     else if (guess < answer) {
         msg.textContent = "Too low, try again.";
+        getTemperature(diff);
     }
     else {
         msg.textContent = "Too high, try again.";
+        getTemperature(diff);
     }
 
 }
