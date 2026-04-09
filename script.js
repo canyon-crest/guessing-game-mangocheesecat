@@ -1,5 +1,7 @@
 // add javascript here
-let guess = 0;
+let playername = prompt("What is your name?");
+let casedname = playername.charAt(0).toUpperCase() + playername.slice(1).toLowerCase();
+
 let answer = 0; 
 let guessCount = 0;
 let totalWins = 0;
@@ -45,15 +47,6 @@ function makeGuess() {
     else {
         msg.textContent = "Too high, try again.";
     }
-    function resetGame() {
-    guess.textContent = "";
-    guessBtn.disabled = true;
-    giveUpBtn.disabled = true;
-    playBtn.disabled = false;
-    e.disabled = false;
-    m.disabled = false;
-    h.disabled = false;
-}
 
 }
 
@@ -73,4 +66,14 @@ function updateScore(score) {
             lb[i].textContent = scores[i];
         }
     }
+}
+
+  function resetGame() {
+    guess.textContent = "";
+    guessBtn.disabled = true;
+    giveUpBtn.disabled = true;
+    playBtn.disabled = false;
+    e.disabled = false;
+    m.disabled = false;
+    h.disabled = false;
 }
