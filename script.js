@@ -50,6 +50,18 @@ function makeGuess() {
     }
 
 }
+function getTemperature() {
+    let diff = Math.abs(guess.value - answer);
+    if (diff <= 2) {
+        msg.textContent = "Very hot!";
+    }
+    else if (diff <= 5) {
+        msg.textContent = "Warm...";
+    }
+    else if (diff > 5) {
+        msg.textConmtent = "Cold.";
+    }
+}
 
 function updateScore(score) {
     scores.push(score);
