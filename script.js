@@ -27,14 +27,14 @@ function play(){
     
 }
 
-function makeGuess(){
+function makeGuess() {
     let guess = parseInt(document.getElementById("guess").value);
-    if(isNaN(guess)){
+    if(isNaN(guess)) {
         msg.textContent = "Please enter a valid number.";
         return;
     }
     guessCount++;
-    if (guess === answer) {
+    if (guess == answer) {
         msg.textContent = "Correct! It took " + guessCount + " tries.";
         updateScore(guessCount);
         resetGame();
@@ -45,6 +45,16 @@ function makeGuess(){
     else {
         msg.textContent = "Too high, try again.";
     }
+    function resetGame() {
+    guess.textContent = "";
+    guessBtn.disabled = true;
+    giveUpBtn.disabled = true;
+    playBtn.disabled = false;
+    e.disabled = false;
+    m.disabled = false;
+    h.disabled = false;
+}
+
 }
 
 function updateScore(score) {
@@ -63,14 +73,4 @@ function updateScore(score) {
             lb[i].textContent = scores[i];
         }
     }
-}
-
-function resetGame() {
-    guess.textContent = "";
-    guessBtn.disabled = true;
-    giveUpBtn.disabled = true;
-    playBtn.disabled = false;
-    e.disabled = false;
-    m.disabled = false;
-    h.disabled = false;
 }
