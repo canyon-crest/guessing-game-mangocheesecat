@@ -31,7 +31,7 @@ function play(){
 
 function makeGuess() {
     let guess = parseInt(document.getElementById("guess").value);
-    let diff = Math.abs(guess.value - answer);
+    let diff = Math.abs(guess - answer);
     if(isNaN(guess)) {
         msg.textContent = "Please enter a valid number.";
         return;
@@ -53,13 +53,13 @@ function makeGuess() {
 }
 function getTemperature(diff) {
     if (diff <= 2) {
-        msg.textContent = "Very hot!";
+        return "Very hot!";
     }
     else if (diff <= 5) {
-        msg.textContent = "Warm...";
+        return "Warm...";
     }
-    else if (diff > 5) {
-        msg.textContent = "Cold.";
+    else {
+        return "Cold.";
     }
 }
 
