@@ -39,7 +39,8 @@ function makeGuess() {
     if (guess == answer) {
         msg.textContent = "Correct! It took " + guessCount + " tries.";
         updateScore(guessCount);
-        resetGame();
+        guessBtn.disabled = true
+        giveUpBtn.disabled = true;
     }
     else if (guess < answer) {
         msg.textContent = "Too low, try again.";
