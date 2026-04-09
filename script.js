@@ -47,14 +47,14 @@ function makeGuess(){
     }
 }
 
-function updateScore(score){
+function updateScore(score) {
     scores.push(score);
-    wins.textcontent = "Total wins: " + scores.length;
+    wins.textContent = "Total wins: " + scores.length;
     let sum = 0;
     for (let i=0; i < scores.length; i++){
         sum += scores[i];
     }
-    avgScore.textcontent = "Average core: " + (sum/scores.length).toFixed(1);
+    avgScore.textContent = "Average Score: " + (sum/scores.length).toFixed(1);
     scores.sort(function(a,b){return a-b});
 
     let lb = document.getElementsByName("leaderboard");
@@ -70,7 +70,7 @@ function resetGame() {
     guessBtn.disabled = true;
     giveUpBtn.disabled = true;
     playBtn.disabled = false;
-    e.dsaibled = false;
+    e.disabled = false;
     m.disabled = false;
     h.disabled = false;
 }
