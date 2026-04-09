@@ -31,6 +31,7 @@ function play(){
 
 function makeGuess() {
     let guess = parseInt(document.getElementById("guess").value);
+    let diff = Math.abs(guess.value - answer);
     if(isNaN(guess)) {
         msg.textContent = "Please enter a valid number.";
         return;
@@ -43,17 +44,14 @@ function makeGuess() {
         giveUpBtn.disabled = true;
     }
     else if (guess < answer) {
-        msg.textContent = "Too low, try again.";
-        getTemperature(diff);
+        msg.textContent = "Too low, try again. " + getTemperature(diff);
     }
     else {
-        msg.textContent = "Too high, try again.";
-        getTemperature(diff);
+        msg.textContent = "Too high, try again. " + getTemperature(diff);
     }
 
 }
-function getTemperature() {
-    let diff = Math.abs(guess.value - answer);
+function getTemperature(diff) {
     if (diff <= 2) {
         msg.textContent = "Very hot!";
     }
@@ -61,7 +59,7 @@ function getTemperature() {
         msg.textContent = "Warm...";
     }
     else if (diff > 5) {
-        msg.textConmtent = "Cold.";
+        msg.textContent = "Cold.";
     }
 }
 
