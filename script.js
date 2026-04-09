@@ -57,10 +57,10 @@ function updateScore(score){
     avgScore.textcontent = "Average core: " + (sum/scores.length).toFixed(1);
     scores.sort(function(a,b){return a-b});
 
-    let 1b = document.getElementsByName("leaderboard");
-    for (let i = 0; i< 1b.length; i++){
+    let lb = document.getElementsByName("leaderboard");
+    for (let i = 0; i < lb.length; i++){
         if( i < scores.length) {
-            1b[1].textContent = scores[i];
+            lb[i].textContent = scores[i];
         }
     }
 }
