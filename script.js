@@ -64,6 +64,7 @@ function makeGuess() {
     if (guess == answer) {
         let quality = guessCount == 1 ? "Hole in one!" : guessCount <= 3 ? "Amazing!" : guessCount <= 6 ? "Good job!" : "Keep practicing!";
 msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessCount + " tries. Streak: " + streak;
+        launchConfetti();
         updateScore(guessCount);
         updateTimers(new Date().getTime());
         guessBtn.disabled = true;
@@ -145,3 +146,19 @@ function updateTimers(endMs) {
 document.getElementById("guess").addEventListener("keydown", function(e) {
     if (e.key === "Enter") makeGuess();
 });
+
+function launchConfetti() {
+    let colors = ["#ff6b6b","#ffd93d","#6bcb77","#4d96ff","#ff922b"];
+    for (let i = 0; i < 80; i++) {
+        let piece = document.createElement("div");
+        piece.style.cssText = `
+            position:fixed; width:10px; height:10px; border-radius:2px;
+            background:${colors[Math.floor(Math.random()*colors.length)]};
+            left:${Math.random()*100}vw; top:-10px;
+            animation: fall ${1 + Math.random()*2}s linear forwards;
+            z-index:9999;
+        `;
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 3000);
+    }
+}

@@ -9,4 +9,5 @@ In my makeGuess function, I added a quality comment after each correct guess bas
 3. Win Streak Tracker
 I added a streak tracker in my win branch of the makeGuess() and also in the giveUp() functions. The streak allows for players to count the total number of times they have won in a row until they give up. This is useful because it encourages players to attempt to get the highest streak!
 
-4. 
+4. Confetti Animation
+I added a confetti animation when you win so that players receive a dopamine hit upon guessing the correct number, prompting them to make more guesses and play the game for longer. To do this, I created a new function called launchConfetti() with style and colors. Winning now feels exciting and rewarding!
