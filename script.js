@@ -13,6 +13,7 @@ document.getElementById("playBtn").addEventListener
 ("click", play);
 document.getElementById("guessBtn").addEventListener("click", makeGuess);
 document.getElementById("giveUpBtn").addEventListener("click", giveUp);
+document.getElementById("date").textContent = time();
 
 setInterval(function(){
     document.getElementById("date").textContent = time();
@@ -124,8 +125,8 @@ function updateTimers(endMs) {
     allTimes.push(elapsed);
     let fastest = Math.min(...allTimes);
     document.getElementById("fastest").textContent = "Fastest: " + fastest + "ms";
-    let averageTime = allTimes.reduce((a,b) => a+b, 0) / allTimes.length;
-    document.getElementById("averageTime").textContent = "Average: " + averageTime.toFixed(0) + "ms";
+    let avgTime = allTimes.reduce((a,b) => a+b, 0) / allTimes.length;
+    document.getElementById("avgTime").textContent = "Average: " + avgTime.toFixed(0) + "ms";
 }
 
   function reset() {
