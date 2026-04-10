@@ -22,6 +22,10 @@ function time() {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let d = new Date();
     let month = months[d.getMonth()];
+    let day = d.getDate();
+    let year = d.getFullYear();
+    let suffix = "th";
+    if (day % 10 == 1 && day !=11) suffix = "st";
 }
 
 function play(){
