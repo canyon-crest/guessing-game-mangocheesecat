@@ -62,6 +62,7 @@ function makeGuess() {
     }
     guessCount++;
     if (guess == answer) {
+        streak++;
         let quality = guessCount == 1 ? "Hole in one!" : guessCount <= 3 ? "Amazing!" : guessCount <= 6 ? "Good job!" : "Keep practicing!";
 msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessCount + " tries. Streak: " + streak;
         launchConfetti();
@@ -69,7 +70,6 @@ msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessC
         updateTimers(new Date().getTime());
         guessBtn.disabled = true;
         giveUpBtn.disabled = true;
-        streak++;
         reset();
     }
     else if (guess < answer) {
