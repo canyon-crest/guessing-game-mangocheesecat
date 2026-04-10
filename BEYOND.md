@@ -6,4 +6,4 @@ I added an Enter key listener on the guess input in script.js. This allows the p
 2. Score Quality Feedback
 In my makeGuess function, I added a quality comment after each correct guess based on the number of tries it took to get it right. Each statement is personalized, and it makes winning more fun and gives the player another goal to try improving towards. 
 
-3. 
+3. Win Streak Tracker

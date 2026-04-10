@@ -8,6 +8,7 @@ let totalWins = 0;
 let startTime = 0;
 let allTimes = [];
 const scores = [];
+let streak = 0;
 
 document.getElementById("playBtn").addEventListener
 ("click", play);
@@ -67,6 +68,7 @@ msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessC
         updateTimers(new Date().getTime());
         guessBtn.disabled = true;
         giveUpBtn.disabled = true;
+        streak++;
         reset();
     }
     else if (guess < answer) {
@@ -119,6 +121,7 @@ function giveUp() {
     updateTimers(new Date().getTime());
     guessBtn.disabled - true;
     giveUpBtn.disabled = true;
+    streak = 0;
     reset();
 }
 function updateTimers(endMs) {
