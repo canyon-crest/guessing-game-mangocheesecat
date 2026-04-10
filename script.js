@@ -61,12 +61,13 @@ function makeGuess() {
     }
     guessCount++;
     if (guess == answer) {
-        msg.textContent = "Correct " + casedname + "! It took " + guessCount + " tries.";
+        let quality = guessCount == 1 ? "Hole in one!" : guessCount <= 3 ? "Amazing!" : guessCount <= 6 ? "Good job!" : "Keep practicing!";
+msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessCount + " tries.";
         updateScore(guessCount);
         updateTimers(new Date().getTime());
         guessBtn.disabled = true;
         giveUpBtn.disabled = true;
-    
+        reset();
     }
     else if (guess < answer) {
         msg.textContent = "Too low, try again. " + getTemperature(diff);
@@ -116,7 +117,7 @@ function giveUp() {
     msg.textContent = "You gave up :( The answer was " + answer;
     updateScore(range);
     updateTimers(new Date().getTime());
-    guessBtn.disabled = true;
+    guessBtn.disabled - true;
     giveUpBtn.disabled = true;
     reset();
 }
@@ -138,7 +139,6 @@ function updateTimers(endMs) {
     m.disabled = false;
     h.disabled = false;
 }
-
 document.getElementById("guess").addEventListener("keydown", function(e) {
     if (e.key === "Enter") makeGuess();
 });
