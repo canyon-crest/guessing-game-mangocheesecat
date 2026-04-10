@@ -66,7 +66,7 @@ function makeGuess() {
         updateTimers(new Date().getTime());
         guessBtn.disabled = true;
         giveUpBtn.disabled = true;
-        reset();
+    
     }
     else if (guess < answer) {
         msg.textContent = "Too low, try again. " + getTemperature(diff);
@@ -116,7 +116,7 @@ function giveUp() {
     msg.textContent = "You gave up :( The answer was " + answer;
     updateScore(range);
     updateTimers(new Date().getTime());
-    guessBtn.disabled - true;
+    guessBtn.disabled = true;
     giveUpBtn.disabled = true;
     reset();
 }
