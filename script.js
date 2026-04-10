@@ -138,3 +138,7 @@ function updateTimers(endMs) {
     m.disabled = false;
     h.disabled = false;
 }
+
+document.getElementById("guess").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") makeGuess();
+});
