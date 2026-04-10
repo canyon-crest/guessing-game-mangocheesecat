@@ -19,7 +19,9 @@ setInterval(function(){
 }, 1000);
 
 function time() {
-    let months = []
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let d = new Date();
+    let month = months[d.getMonth()];
 }
 
 function play(){
