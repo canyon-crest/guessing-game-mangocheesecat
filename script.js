@@ -63,7 +63,7 @@ function makeGuess() {
     guessCount++;
     if (guess == answer) {
         let quality = guessCount == 1 ? "Hole in one!" : guessCount <= 3 ? "Amazing!" : guessCount <= 6 ? "Good job!" : "Keep practicing!";
-msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessCount + " tries.";
+msg.textContent = "Correct " + casedname + "! " + quality + " It took " + guessCount + " tries. Streak: " + streak;
         updateScore(guessCount);
         updateTimers(new Date().getTime());
         guessBtn.disabled = true;
@@ -119,7 +119,7 @@ function giveUp() {
     msg.textContent = "You gave up :( The answer was " + answer;
     updateScore(range);
     updateTimers(new Date().getTime());
-    guessBtn.disabled - true;
+    guessBtn.disabled = true;
     giveUpBtn.disabled = true;
     streak = 0;
     reset();
