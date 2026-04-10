@@ -40,9 +40,10 @@ function play(){
         }
         levels[i].disabled = true;
     }
-    document.getElementById("msg").textContent = "Guess a number 1-" +range;
+    msg.textContent = "Hello " + casedname + "! Guess a number 1- " + range;
     answer = Math.floor(Math.random()*range) +1;
     guessCount = 0;
+    startTime = new Date().getTime();
 
     guessBtn.disabled = false;
     giveUpBtn.disabled = false;
@@ -59,10 +60,12 @@ function makeGuess() {
     }
     guessCount++;
     if (guess == answer) {
-        msg.textContent = "Correct! It took " + guessCount + " tries.";
+        msg.textContent = "Correct " + casedname + "! It took " + guessCount + " tries.";
         updateScore(guessCount);
+        updateTimers(new Date().getTime());
         guessBtn.disabled = true;
         giveUpBtn.disabled = true;
+        reset();
     }
     else if (guess < answer) {
         msg.textContent = "Too low, try again. " + getTemperature(diff);
@@ -98,11 +101,34 @@ function updateScore(score) {
     for (let i = 0; i < lb.length; i++){
         if( i < scores.length) {
             lb[i].textContent = scores[i];
+        } else {
+            lb[i].textContent = "--";
         }
     }
 }
+function giveUp() {
+    let range = 0;
+    let levels = document.getElementsByName("level");
+    for(let i=0; i < levels.length; i++){
+        if (levels[i].checked) range = parseInt(levels[i].value);
+    }
+    msg.textContent = "You gave up :( The answer was " + answer;
+    updateScore(range);
+    updateTimers(new Date().getTime());
+    guessBtn.disabled - true;
+    giveUpBtn.disabled = true;
+    reset();
+}
+function updateTimers(endMs) {
+    let elapsed = endMs - startTime;
+    allTimes.push(elapsed);
+    let fastest = Math.min(...allTimes);
+    document.getElementById("fastest").textContent = "Fastest: " + fastest + "ms";
+    let averageTime = allTimes.reduce((a,b) => a+b, 0) / allTimes.length;
+    document.getElementById("averageTime").textContent = "Average: " + averageTime.toFixed(0) + "ms";
+}
 
-  function resetGame() {
+  function reset() {
     guess.textContent = "";
     guessBtn.disabled = true;
     giveUpBtn.disabled = true;
